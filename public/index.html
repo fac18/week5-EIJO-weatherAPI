@@ -1,17 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Find out the weather where you're going with this nifty app">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Find out the weather where you're going with this nifty app"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Weather app: Where you going?</title>
-    <link rel="stylesheet" type="text/css" href="/public/reset.css">
-    <link rel="stylesheet" type="text/css" href="/public/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:400,800|Roboto&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/9de7c8a110.js" crossorigin="anonymous"></script>
-</head>
-<body>
-    <p> hello everyone </p>
-</body>
+    <link rel="stylesheet" type="text/css" href="/public/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/public/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway:400,800|Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/9de7c8a110.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <p>hello everyone</p>
+    <section class="container">
+      <form>
+        <input
+          autocomplete="off"
+          name="site-box"
+          class="input-box"
+          aria-label="Enter your heritage here"
+          placeholder="Enter your wanted U.K's heritage site..."
+          type="text"
+        />
+        <button
+          id="site-button"
+          aria-label="Submit button"
+          type="submit"
+          class="fas fa-search-location
+                            search-icon"
+        ></button>
+      </form>
+      <div class="dropdown-container">
+        <ul class="dropdown-box"></ul>
+      </div>
+    </section>
+  </body>
 </html>
