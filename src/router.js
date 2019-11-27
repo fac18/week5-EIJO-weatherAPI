@@ -12,8 +12,8 @@ const router = (request, response) => {
     //     handlers.handleData(request, response, endpoint);
            
     } else {
-        response.writeHead(404);
-        response.end('404 not found');
+        response.writeHead(404, { 'Content-Type': 'text/html'});
+        response.end('unknown uri');
     }
 }
 module.exports = router;
