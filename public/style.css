@@ -1,0 +1,28 @@
+:root {
+    /* colour variables */ 
+    --glass: #0b8321;
+    --blueberry: #4d88cc;
+    --yelliced: #f2d655;
+    --mystic: #9088dd;
+    --fey: #f5d4e3;
+    --whiteout: white;
+
+    /* spacing variables: golden ratio */
+    --space-xs: 0.382rem;
+    --space-s: 0.618rem;
+    --space-m: 1rem;
+    --space-l: 1.618rem;
+    --space-xl: 2.618rem;
+    --space-xxl: 4.236rem;
+    /* Fonts  */
+    --raleway: 'Raleway', sans-serif;
+    --roboto: 'Roboto', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
