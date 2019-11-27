@@ -17,7 +17,9 @@
     "tap-spec": "^5.0.0",
     "tape": "^4.11.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "prettier": "^1.19.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fac18/week5-EIJO-weatherAPI.git"
