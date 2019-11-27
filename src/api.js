@@ -1,11 +1,18 @@
 "use strict";
 const http = require("http");
-const queryString = require("./router.js")
+const https = require("https");
+const queryString = require("./router.js");
+const config = ("./config.json");
+
 
 const weatherKey = config.WEATHER_KEY; // fetch key from config file
-const url = `http://api.openweathermap.org/data/2.5/weather? ${queryString} ${weatherKey}`;
+
+console.log(weatherKey);
+
+const url = `api.openweathermap.org/data/2.5/weather? ${queryString} ${weatherKey}`;
 const myRequest = (url, cb) => {
-  http.get(url, response => {
+  const protocol = url.includes("https") ? https : http;
+  protocol.get(url, response => {
       let data = "";
       response.on("data", chunk => {
         data += chunk;
@@ -20,10 +27,7 @@ const myRequest = (url, cb) => {
     .on("error", err => cb(err));
 };
 // uncomment below for bonus https solution
-// const https = require("https");
-// const myBonusRequest = (url, cb) => {
-//   const protocol = url.includes("https") ? https : http;
-//   protocol
+// 
 //     .get(url, response => {
 //       let data = "";
 //       response.on("data", chunk => {
