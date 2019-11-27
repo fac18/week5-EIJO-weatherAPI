@@ -18,7 +18,8 @@
     "tape": "^4.11.0"
   },
   "devDependencies": {
-    "prettier": "^1.19.1"
+    "prettier": "^1.19.1",
+    "travis": "^0.1.1"
   },
   "repository": {
     "type": "git",
