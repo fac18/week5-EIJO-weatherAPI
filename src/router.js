@@ -5,6 +5,8 @@ const router = (request, response) => {
     if (endpoint === '/') {
         handlers.handleHome(request, response);
 
+            // maybe need to handleInput????????
+
     } else if (endpoint.includes('public')) {
         handlers.handlePublic(request, response, endpoint); // PASS THE URL 
     

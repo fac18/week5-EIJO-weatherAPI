@@ -1,6 +1,7 @@
-// xconst data = require('./data');
+// const data = require('./data');
 const fs = require("fs");
 const path = require("path");
+// const api = require('./api.js'); - needed for handleInput
 // const url = require("url");
 
 // const search = term => {
@@ -27,6 +28,25 @@ const handleHome = (request, response) => {
     }
   });
 };
+
+// const handleInput = (request, response) => {
+//   myRequest
+//   api.url + request.body.(error, data) => {
+//     // gives you a cb, either an error or the file
+//     if (error) {
+//       console.log(error);
+//       response.writeHead(500, {
+//         "Content-Type": "text/html"
+//       }); // 500 server-side error
+//       response.end("<h1>Sorry we had a problem at our end</h1>");
+//     } else {
+//       response.writeHead(200, {
+//         "Content-Type": "application/json"
+//       }); //so the server can expect a HTML file coming in
+//       response.end(JSON.stringify(data));
+//     }
+//   });
+// };
 
 const handlePublic = (request, response, endpoint) => {
   // PASS THE URL
@@ -67,7 +87,8 @@ const handlePublic = (request, response, endpoint) => {
 
 module.exports = {
   handleHome,
-  handlePublic
+  handlePublic,
+  // handleInput - commented out
   // handleData,
   // search
 };
