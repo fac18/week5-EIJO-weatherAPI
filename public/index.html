@@ -22,23 +22,23 @@
   </head>
   <body>
     <h1>What's the Weather?</h1>
-    <p>Plan your city break using our site</p>
+    <p>Discover the weather where you're going</p>
     <section class="container">
       <form method="GET" action="/search">
-        <p>Going from:</p>
+        <!-- <p>Going from:</p>
         <input
           autocomplete="off"
-          name="site-box"
-          class="input-postcode"
+          name="q"
+          class="input-box"
           aria-label="Enter your postcode here"
           placeholder="Enter your postcode..."
           type="text"
           required
-        />
-        <p>Going to:</p>
+        /> -->
+        <!-- <p>Going to:</p> -->
         <input
         autocomplete="off"
-          name="site-box"
+          name="q"
           class="input-city"
           aria-label="Enter a city here"
           placeholder="Enter a city..."
@@ -58,6 +58,7 @@
       <div class="dropdown-container">
         <ul class="dropdown-box"></ul>
       </div>
+      <div class="tfl-output"></div>
     </section>
     <section class = "">
 
