@@ -87,7 +87,7 @@ const handlePublic = (request, response, endpoint) => {
 
 module.exports = {
   handleHome,
-  handlePublic,
+  handlePublic
   // handleInput - commented out
   // handleData,
   // search
