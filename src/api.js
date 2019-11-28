@@ -1,6 +1,5 @@
 "use strict";
 const http = require("http");
-const config = require("./config");
 const https = require("https");
 
 const weatherRequest = (url, cb) => {
