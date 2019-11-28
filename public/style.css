@@ -15,8 +15,8 @@
     --space-xl: 2.618rem;
     --space-xxl: 4.236rem;
     /* Fonts  */
-    --raleway: 'Raleway', sans-serif;
-    --roboto: 'Roboto', sans-serif;
+    --strait: 'Strait', sans-serif;
+    --wsans: 'Work Sans', sans-serif;
 }
 
 * {
@@ -26,3 +26,69 @@
 html {
     scroll-behavior: smooth;
 }
+
+body {
+    margin: var(--space-l);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* text-align: center; */
+    background: var(--blueberry);
+    line-height: var(--space-m);
+    font-family: var(--strait)
+}
+
+section {
+    display: flex;
+    justify-content: center;
+}
+
+h1, p {
+    text-align: center;
+    padding: var(--space-m);
+}
+
+h1 {
+    font-size: var(--space-xl);
+    line-height: var(--space-xl);
+}
+
+p {
+    font-size: var(--space-l);
+    font-family: var(--wsans);
+    line-height: var(--space-l);
+    padding-bottom: var(--space-l);
+}
+
+form {
+    line-height: var(--space-l);
+    font-family: var(--wsans);
+    font-size: var(--space-m);
+}
+
+.input-box {
+    padding-left: var(--space-s);
+    max-width: 80vw;
+}
+
+
+
+// Think about mobile first?
+
+// to show animation enable the correct animation class using the DOM to add the class.
+// Maybe use set-timer timeout to stop the animation? Or we can use a particular iteration count to ensure it doesn't continue on an infinite loop?
+
+// Alternatively, to hide the animation we can remove any class that includes 'weather', 
+//would we need to 'display: none' for the same DOM element?
+
+.weatherDrizzle {
+    display: block;
+    transform: translate();
+}
+
+//
+.svgClearout {
+    display: none;
+}
+
+
