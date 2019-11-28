@@ -40,7 +40,7 @@ const handleInput = (request, response, endpoint) => {
   // console.log("originLocation in handleInput:", originLocation);
   // let transportUrl = `https://transportapi.com/v3/uk/public/journey/from/${originLocation}/to/HeathrowAirport.json?app_id=${tflAppID}&app_key=${tflKey}`;
   const weatherKey = process.env.WEATHER_KEY; // fetch key from config file
-  console.log("weatherKey:", weatherKey);
+  // console.log("weatherKey:", weatherKey);
   const weatherUrl = `https://api.openweathermap.org/data/2.5/find?units=metric&appid=${weatherKey}&q=${city}`;
 
   apis.weatherRequest(weatherUrl, (err, data) => {
@@ -50,7 +50,7 @@ const handleInput = (request, response, endpoint) => {
       // response.write("404");
       response.end();
     } else {
-      response.writeHead(200, { "Content-Type": "application/json" });
+      // response.writeHead(200, { "Content-Type": "application/json" });
       response.end(JSON.stringify(data));
       //if we want to access the description of the weather use this .body.list[0].weather[0].description on the frontend
     }
