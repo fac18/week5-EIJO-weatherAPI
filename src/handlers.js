@@ -2,9 +2,10 @@
 const fs = require("fs");
 const path = require("path");
 const apis = require("./api.js");
-const config = require("./config");
-const tflKey = config.TFL_KEY;
-const tflAppID = config.TFL_APP_ID;
+const env = require("dotenv").config();
+// const config = require("./config");
+const tflKey = process.env.TFL_KEY;
+const tflAppID = process.env.TFL_APP_ID;
 // const url = require("url");
 
 // const search = term => {
@@ -35,10 +36,14 @@ const handleHome = (request, response) => {
 const handleInput = (request, response, endpoint) => {
   // const newsKey = process.env.DB_APIKEYNEWS;
   // const countryCode = endpoint.split("?")[1];
-  const originLocation = endpoint.split("q=")[1];
-  console.log("originLocation in handleInput:", originLocation);
-  let transportUrl = `https://transportapi.com/v3/uk/public/journey/from/${originLocation}/to/HeathrowAirport.json?app_id=${tflAppID}&app_key=${tflKey}`;
-  apis.transportRequest(transportUrl, (err, data) => {
+  const city = endpoint.split("q=")[1];
+  // console.log("originLocation in handleInput:", originLocation);
+  // let transportUrl = `https://transportapi.com/v3/uk/public/journey/from/${originLocation}/to/HeathrowAirport.json?app_id=${tflAppID}&app_key=${tflKey}`;
+  const weatherKey = process.env.WEATHER_KEY; // fetch key from config file
+  console.log("weatherKey:", weatherKey);
+  const weatherUrl = `https://api.openweathermap.org/data/2.5/find?units=metric&appid=${weatherKey}&q=${city}`;
+
+  apis.weatherRequest(weatherUrl, (err, data) => {
     if (err) {
       console.error(err);
       response.writeHead(400, { "Content-Type": "text/html" });
@@ -46,7 +51,8 @@ const handleInput = (request, response, endpoint) => {
       response.end();
     } else {
       response.writeHead(200, { "Content-Type": "application/json" });
-      response.end(JSON.stringify(data.body.identification.from_options[1]));
+      response.end(JSON.stringify(data));
+      //if we want to access the description of the weather use this .body.list[0].weather[0].description on the frontend
     }
   });
 };
