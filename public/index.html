@@ -8,7 +8,7 @@
       content="Find out the weather where you're going with this nifty app"
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Weather app: Where you going?</title>
+    <title>What's the Weather?</title>
     <link rel="stylesheet" type="text/css" href="/public/reset.css" />
     <link rel="stylesheet" type="text/css" href="/public/style.css" />
     <link
@@ -22,18 +22,31 @@
   </head>
   <body>
     <h1>What's the Weather?</h1>
-    <p>Discover the weather in your city</p>
+    <p>Plan your city break using our site</p>
     <section class="container">
       <form method="GET" action="/search">
+        <p>Going from:</p>
         <input
           autocomplete="off"
           name="site-box"
-          class="input-box"
-          aria-label="Enter your location here"
-          placeholder="Enter your location..."
+          class="input-postcode"
+          aria-label="Enter your postcode here"
+          placeholder="Enter your postcode..."
           type="text"
           required
         />
+        <p>Going to:</p>
+        <input
+        autocomplete="off"
+          name="site-box"
+          class="input-city"
+          aria-label="Enter a city here"
+          placeholder="Enter a city..."
+          type="text"
+          required
+      />
+
+
         <button
           id="site-button"
           aria-label="Submit button"
@@ -46,5 +59,9 @@
         <ul class="dropdown-box"></ul>
       </div>
     </section>
+    <section class = "">
+
+    </section>
+
   </body>
 </html>

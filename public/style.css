@@ -28,10 +28,10 @@ html {
 }
 
 body {
-    margin: var(--space-l);
+    margin: var(--space-xl);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     /* text-align: center; */
     background: var(--blueberry);
     line-height: var(--space-m);
@@ -64,12 +64,27 @@ form {
     line-height: var(--space-l);
     font-family: var(--wsans);
     font-size: var(--space-m);
+    display: flex;
+    flex-flow: row nowrap;
 }
 
 .input-box {
     padding-left: var(--space-s);
     max-width: 80vw;
+    /* height: var(--space-l); */
+    border-radius: 16px;
+    padding-right: var(--space-l)
 }
+
+button {
+    font-size: var(--space-l);
+    border-radius: 16px;
+    border: white;
+    /* height: var(--space-xl); */
+}
+
+
+
 
 
 
