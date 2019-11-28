@@ -24,7 +24,7 @@
     <h1>What's the Weather?</h1>
     <p>Discover the weather where you're going</p>
     <section class="container">
-      <form method="GET" action="/search">
+      <form>
         <!-- <p>Going from:</p>
         <input
           autocomplete="off"
@@ -37,20 +37,18 @@
         /> -->
         <!-- <p>Going to:</p> -->
         <input
-        autocomplete="off"
+          autocomplete="off"
           name="q"
           class="input-city"
           aria-label="Enter a city here"
           placeholder="Enter a city..."
           type="text"
           required
-      />
-
+        />
 
         <button
           id="site-button"
           aria-label="Submit button"
-          type="submit"
           class="fas fa-search-location
                             search-icon"
         ></button>
@@ -60,9 +58,7 @@
       </div>
       <div class="tfl-output"></div>
     </section>
-    <section class = "">
-
-    </section>
-
+    <section class=""></section>
+    <script type="text/javascript" src="./public/dom.js"></script>
   </body>
 </html>
