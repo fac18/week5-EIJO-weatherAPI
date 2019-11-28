@@ -1,9 +1,10 @@
 "use strict";
 const http = require("http");
-const queryString = require("./router.js")
+const config = require("./config");
 
 const weatherKey = config.WEATHER_KEY; // fetch key from config file
-const url = `http://api.openweathermap.org/data/2.5/weather? ${queryString} ${weatherKey}`;
+const url = `http://api.openweathermap.org/data/2.5/weather?appid=${weatherKey}&q=`;
+
 const myRequest = (url, cb) => {
   http.get(url, response => {
       let data = "";
@@ -38,7 +39,8 @@ const myRequest = (url, cb) => {
 //     .on("error", err => cb(err));
 // };
 module.exports = {
-  myRequest
+  myRequest,
+  url
   // uncomment line below to export bonus solution
   // ,myBonusRequest
 };
