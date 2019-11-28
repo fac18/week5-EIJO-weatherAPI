@@ -1,5 +1,5 @@
 const handlers = require("./handlers.js");
-const config = require("./config");
+const config = require("./config.json");
 const apis = require("./api");
 
 const tflKey = config.TFL_KEY;
