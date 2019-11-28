@@ -1,15 +1,29 @@
 "use strict";
 const http = require("http");
-const config = require("./config");
 const https = require("https");
 
-const weatherKey = config.WEATHER_KEY; // fetch key from config file
-const url = `http://api.openweathermap.org/data/2.5/weather?&units=metric?appid=${weatherKey}&q=`;
+const weatherRequest = (url, cb) => {
+  const protocol = url.includes("https") ? https : http;
+  protocol
+    .get(url, response => {
+      let data = "";
+      response.on("data", chunk => {
+        data += chunk;
+      });
+      response.on("end", () => {
+        const body = JSON.parse(data);
+        // console.log('Whole body weather: ', body)
+        let weatherCondition = body.list[0].weather[0].description;
+        let weatherIconCode = body.list[0].weather[0].icon;
+        let weatherIcon = `http://openweathermap.org/img/wn/${weatherIconCode}@2x.png`
 
-
-// const tflKey = config.TFL_KEY;
-// const tflAppID = config.TFL_APP_ID;
-// // const transportUrl = `https://transportapi.com/v3/uk/public/journey/from/london/to/liverpool.json?app_id=${tflAppID}&app_key=${tflKey}`;
+        const statusCode = response.statusCode;
+        console.log("StatusCode:", statusCode);
+        // cb(null, { statusCode, body });
+      });
+    })
+    .on("error", err => cb(err));
+};
 
 const transportRequest = (url, cb) => {
   const protocol = url.includes("https") ? https : http;
@@ -52,7 +66,8 @@ const transportRequest = (url, cb) => {
 module.exports = {
   // myRequest,
   // url,
-  transportRequest
+  transportRequest,
+  weatherRequest
   // uncomment line below to export bonus solution
   // ,myBonusRequest
 };
