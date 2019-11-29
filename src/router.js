@@ -6,9 +6,9 @@ const router = (request, response) => {
   if (endpoint === "/") {
     handlers.handleHome(request, response);
 
-  } else if (endpoint.includes("public")) {
-    handlers.handlePublic(request, response, endpoint); 
-  } else if (endpoint.includes("q")) {
+  } else if (endpoint.startsWith("/public")) {
+    handlers.handlePublic(request, response, endpoint);
+  } else if (endpoint.includes("?q=")) {
     handlers.handleInput(request, response, endpoint);
   } else {
     response.writeHead(404, { "Content-Type": "text/html" });

@@ -7,19 +7,23 @@ siteButton.addEventListener("click", event => {
   if (inputValue.value) {
     let searchTerm = inputValue.value;
     let xhr = new XMLHttpRequest();
-    let searchUrl = `http://localhost:5000/search?q=${encodeURIComponent(
-      searchTerm
-    )}`;
+    let searchUrl = `/search?q=${encodeURIComponent(searchTerm)}`;
   
     xhr.onreadystatechange = () => {
       if (xhr.readyState == 4 && xhr.status == 200) {
-        let originLocation = JSON.parse(xhr.responseText);
+        let weatherData = JSON.parse(xhr.responseText);
         clearWeather();
-        var paraWeatherCondition = document.createElement("p"); 
-        var textWeatherCondition = document.createTextNode(`The weather in ${searchTerm} is ${originLocation.weather}`); 
+        let paraWeatherCondition = document.createElement("p"); 
+        let textWeatherCondition = document.createTextNode(`The weather in ${searchTerm} is ${weatherData.weatherTemp}°C, ${weatherData.weather}`); 
         paraWeatherCondition.appendChild(textWeatherCondition);
         weatherSection.appendChild(paraWeatherCondition); 
+
+        let imgWeatherIcon = document.createElement('img');
+        imgWeatherIcon.setAttribute('src', `${weatherData.weatherIcon}`);
+        weatherSection.appendChild(imgWeatherIcon);
+        console.log(imgWeatherIcon);
         inputValue.value = "";
+
       }
     };
     xhr.open("GET", searchUrl, true);
