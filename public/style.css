@@ -86,3 +86,39 @@ button:hover {
     color: var(--mystic);
     border: 2px solid var(--mystic);
 }
+
+#rain-svg, #wind-svg {
+    display: none;
+}
+
+/* media queries */
+@media (min-width: 768px) {
+
+    body {
+        justify-content: center;
+    }
+
+    h1 {
+        padding: var(--space-l);
+        font-size: var(--space-xxl);
+    }
+
+    p {
+        font-size: var(--space-l);
+
+    }
+
+    form {
+        padding-top: var(--space-xl);
+    }
+
+    #rain-svg, #wind-svg {
+        display: block;
+        size: 200%;
+    }
+
+    .svg {
+        padding: var(--space-xl);
+    }
+
+}
