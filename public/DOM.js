@@ -19,7 +19,7 @@ siteButton.addEventListener("click", event => {
         console.log("originLocation:", originLocation);
 
         var node = document.createElement("div"); // Create a <li> node
-        var textnode = document.createTextNode(originLocation); // Create a text node
+        var textnode = document.createTextNode(originLocation.weather); // Create a text node
         node.appendChild(textnode); // Append the text to <li>
         divTFL.appendChild(node); // Append <li> to <ul> with id="myList"
       }
