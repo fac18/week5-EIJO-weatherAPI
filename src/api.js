@@ -12,7 +12,7 @@ const weatherRequest = (url, cb) => {
       });
       response.on("end", () => {
         const body = JSON.parse(data);
-        let weather = body.list[0].weather[0];
+        let weather = body.list[0].weather[0].description;
         let weatherIconCode = body.list[0].weather[0].icon;
         let weatherIcon = `http://openweathermap.org/img/wn/${weatherIconCode}@2x.png`;
 
