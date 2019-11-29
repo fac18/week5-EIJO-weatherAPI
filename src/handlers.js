@@ -1,18 +1,8 @@
-// const data = require('./data');
 const fs = require("fs");
 const path = require("path");
 const apis = require("./api.js");
 const env = require("dotenv").config();
 // const config = require("./config");
-const tflKey = process.env.TFL_KEY;
-const tflAppID = process.env.TFL_APP_ID;
-// const url = require("url");
-
-// const search = term => {
-//   if (term === "") {
-//     return [];
-//   }
-// };
 
 const handleHome = (request, response) => {
   const filePath = path.join(__dirname, "..", "public", "index.html"); //asynchronous way
@@ -34,11 +24,7 @@ const handleHome = (request, response) => {
 };
 
 const handleInput = (request, response, endpoint) => {
-  // const newsKey = process.env.DB_APIKEYNEWS;
-  // const countryCode = endpoint.split("?")[1];
   const city = endpoint.split("q=")[1];
-  // console.log("originLocation in handleInput:", originLocation);
-  // let transportUrl = `https://transportapi.com/v3/uk/public/journey/from/${originLocation}/to/HeathrowAirport.json?app_id=${tflAppID}&app_key=${tflKey}`;
   const weatherKey = process.env.WEATHER_KEY; // fetch key from config file
   // console.log("weatherKey:", weatherKey);
   const weatherUrl = `https://api.openweathermap.org/data/2.5/find?units=metric&appid=${weatherKey}&q=${city}`;
@@ -58,7 +44,6 @@ const handleInput = (request, response, endpoint) => {
 };
 
 const handlePublic = (request, response, endpoint) => {
-  // PASS THE URL
   const extension = endpoint.split(".")[1];
   const extensionType = {
     html: "text/html",
@@ -85,19 +70,8 @@ const handlePublic = (request, response, endpoint) => {
   });
 };
 
-//Handle the weather Data
-// const handleData = (request, response, endpoint) => {
-// let urlObject = url.parse(endpoint);
-// let searchTerm = urlObject.query.split("=")[1];
-// let result = search(decodeURI(searchTerm));
-// response.writeHead(200, { "Content-Type": "application/json" });
-// response.end(JSON.stringify(result));
-// }
-
 module.exports = {
   handleHome,
   handlePublic,
   handleInput
-  // handleData,
-  // search
 };
