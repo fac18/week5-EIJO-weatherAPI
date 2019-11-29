@@ -4,7 +4,6 @@ const weatherSection = document.querySelector(".weather-container");
 
 siteButton.addEventListener("click", event => {
   event.preventDefault();
-  console.log("we made a request");
   if (inputValue.value) {
     let searchTerm = inputValue.value;
     let xhr = new XMLHttpRequest();
@@ -12,9 +11,7 @@ siteButton.addEventListener("click", event => {
   
     xhr.onreadystatechange = () => {
       if (xhr.readyState == 4 && xhr.status == 200) {
-        console.log("we made it back mother fuckersssss");
         let weatherData = JSON.parse(xhr.responseText);
-        console.log("weather:", weatherData);
         clearWeather();
         let paraWeatherCondition = document.createElement("p"); 
         let textWeatherCondition = document.createTextNode(`The weather in ${searchTerm} is ${weatherData.weatherTemp}°C, ${weatherData.weather}`); 

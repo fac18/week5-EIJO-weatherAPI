@@ -2,22 +2,19 @@ const fs = require("fs");
 const path = require("path");
 const apis = require("./api.js");
 const env = require("dotenv").config();
-// const config = require("./config");
 
 const handleHome = (request, response) => {
-  const filePath = path.join(__dirname, "..", "public", "index.html"); //asynchronous way
+  const filePath = path.join(__dirname, "..", "public", "index.html"); 
   fs.readFile(filePath, (error, file) => {
-    // gives you a cb, either an error or the file
     if (error) {
-      console.log(error);
       response.writeHead(500, {
         "Content-Type": "text/html"
-      }); // 500 server-side error
+      }); 
       response.end("<h1>Sorry we had a problem at our end</h1>");
     } else {
       response.writeHead(200, {
         "Content-Type": "text/html"
-      }); //so the server can expect a HTML file coming in
+      });
       response.end(file);
     }
   });
@@ -33,12 +30,9 @@ const handleInput = (request, response, endpoint) => {
     if (err) {
       console.error(err);
       response.writeHead(400, { "Content-Type": "text/html" });
-      // response.write("404");
       response.end();
     } else {
-      // response.writeHead(200, { "Content-Type": "application/json" });
       response.end(JSON.stringify(data));
-      //if we want to access the description of the weather use this .body.list[0].weather[0].description on the frontend
     }
   });
 };
@@ -56,7 +50,6 @@ const handlePublic = (request, response, endpoint) => {
   const filePath = path.join(__dirname, "..", endpoint);
   fs.readFile(filePath, (error, file) => {
     if (error) {
-      console.log(error);
       response.writeHead(404, {
         "Content-Type": "text/html"
       });
