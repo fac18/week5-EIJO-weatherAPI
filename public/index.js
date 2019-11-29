@@ -13,13 +13,18 @@ siteButton.addEventListener("click", event => {
     xhr.onreadystatechange = () => {
       if (xhr.readyState == 4 && xhr.status == 200) {
         console.log("we made it back mother fuckersssss");
-        let originLocation = JSON.parse(xhr.responseText);
-        console.log("originLocation:", originLocation);
+        let weatherData = JSON.parse(xhr.responseText);
+        console.log("weather:", weatherData);
         clearWeather();
-        var paraWeatherCondition = document.createElement("p"); 
-        var textWeatherCondition = document.createTextNode(`The weather in ${searchTerm} is ${originLocation.weather}`); 
+        let paraWeatherCondition = document.createElement("p"); 
+        let textWeatherCondition = document.createTextNode(`The weather in ${searchTerm} is ${weatherData.weather}`); 
         paraWeatherCondition.appendChild(textWeatherCondition);
         weatherSection.appendChild(paraWeatherCondition); 
+
+        let imgWeatherIcon = document.createElement('img');
+        imgWeatherIcon.setAttribute('src', `${weatherData.weatherIcon}`);
+        weatherSection.appendChild(imgWeatherIcon);
+        console.log(imgWeatherIcon);
         inputValue.value = "";
       }
     };

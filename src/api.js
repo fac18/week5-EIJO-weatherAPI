@@ -18,7 +18,7 @@ const weatherRequest = (url, cb) => {
 
         const statusCode = response.statusCode;
         console.log("StatusCode:", statusCode);
-        cb(null, { statusCode, weather });
+        cb(null, { statusCode, weather, weatherIcon });
       });
     })
     .on("error", err => cb(err));
