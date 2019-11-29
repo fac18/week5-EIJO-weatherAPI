@@ -10,25 +10,17 @@ siteButton.addEventListener("click", event => {
     let searchUrl = `http://localhost:5000/search?q=${encodeURIComponent(
       searchTerm
     )}`;
-  
     xhr.onreadystatechange = () => {
       if (xhr.readyState == 4 && xhr.status == 200) {
         let originLocation = JSON.parse(xhr.responseText);
-        clearWeather();
-        var paraWeatherCondition = document.createElement("p"); 
-        var textWeatherCondition = document.createTextNode(`The weather in ${searchTerm} is ${originLocation.weather}`); 
+
+        var paraWeatherCondition = document.createElement("p");
+        var textWeatherCondition = document.createTextNode(`The weather in ${searchTerm} is ${originLocation.weather}`); // Create a text node
         paraWeatherCondition.appendChild(textWeatherCondition);
-        weatherSection.appendChild(paraWeatherCondition); 
-        inputValue.value = "";
+        weatherSection.appendChild(paraWeatherCondition);
       }
     };
     xhr.open("GET", searchUrl, true);
     xhr.send();
   }
 });
-
-const clearWeather = () => {
-  while (weatherSection.firstChild) {
-    weatherSection.removeChild(weatherSection.firstChild);
-  }
-};

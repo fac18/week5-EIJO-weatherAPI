@@ -6,12 +6,10 @@ const router = (request, response) => {
   if (endpoint === "/") {
     handlers.handleHome(request, response);
 
-    // maybe need to handleInput????????
   } else if (endpoint.includes("public")) {
-    handlers.handlePublic(request, response, endpoint); // PASS THE URL
+    handlers.handlePublic(request, response, endpoint); 
   } else if (endpoint.includes("q")) {
     handlers.handleInput(request, response, endpoint);
-    console.log("hello this is at the endpoint search");
   } else {
     response.writeHead(404, { "Content-Type": "text/html" });
     response.end("unknown uri");
