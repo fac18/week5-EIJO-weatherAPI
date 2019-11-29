@@ -11,7 +11,7 @@ siteButton.addEventListener("click", event => {
     let searchUrl = `http://localhost:5000/search?q=${encodeURIComponent(
       searchTerm
     )}`;
-    // --change - line;
+  
     xhr.onreadystatechange = () => {
       if (xhr.readyState == 4 && xhr.status == 200) {
         console.log("we made it back mother fuckersssss");

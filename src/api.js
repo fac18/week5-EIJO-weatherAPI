@@ -24,35 +24,4 @@ const weatherRequest = (url, cb) => {
     .on("error", err => cb(err));
 };
 
-// const transportRequest = (url, cb) => {
-//   const protocol = url.includes("https") ? https : http;
-//
-//   protocol
-//     .get(url, response => {
-//       let data = "";
-//       response.on("data", chunk => {
-//         data += chunk;
-//       });
-//       response.on("end", () => {
-//         const body = JSON.parse(data);
-//         console.log(
-//           "consoled in transport request in api.js",
-//           body.identification.from_options
-//         );
-//
-//         const statusCode = response.statusCode;
-//         console.log("StatusCode:", statusCode);
-//         cb(null, { statusCode, body });
-//       });
-//     })
-//     .on("error", err => cb(err));
-// };
-
-module.exports = {
-  // myRequest,
-  // url,
-  // transportRequest,
-  weatherRequest
-  // uncomment line below to export bonus solution
-  // ,myBonusRequest
-};
+module.exports = { weatherRequest };
