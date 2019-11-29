@@ -19,7 +19,6 @@ const handleHome = (request, response) => {
   fs.readFile(filePath, (error, file) => {
     // gives you a cb, either an error or the file
     if (error) {
-      console.log(error);
       response.writeHead(500, {
         "Content-Type": "text/html"
       }); // 500 server-side error
@@ -71,7 +70,6 @@ const handlePublic = (request, response, endpoint) => {
   const filePath = path.join(__dirname, "..", endpoint);
   fs.readFile(filePath, (error, file) => {
     if (error) {
-      console.log(error);
       response.writeHead(404, {
         "Content-Type": "text/html"
       });

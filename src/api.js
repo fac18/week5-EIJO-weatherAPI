@@ -17,7 +17,6 @@ const weatherRequest = (url, cb) => {
         let weatherIcon = `http://openweathermap.org/img/wn/${weatherIconCode}@2x.png`;
 
         const statusCode = response.statusCode;
-        console.log("StatusCode:", statusCode);
         cb(null, { statusCode, weather });
       });
     })
