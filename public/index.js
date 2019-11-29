@@ -3,6 +3,10 @@ const siteButton = document.getElementById("site-button");
 const weatherSection = document.querySelector(".weather-container");
 
 siteButton.addEventListener("click", event => {
+  if (inputValue.value === "") {
+    alert("Oops! You've forgotten to enter a city");
+    inputValue.focus();
+  }
   event.preventDefault();
   if (inputValue.value) {
     let searchTerm = inputValue.value;
