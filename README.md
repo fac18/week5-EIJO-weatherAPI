@@ -3,7 +3,7 @@ What's the weather where you're going? Find out using our site.
 
 ### 💾 Installation Guide
 
-1. Clone this repo
+1. Clone the repo `git@github.com:fac18/week5-EIJO-weatherAPI.git`
 
 2. Run `npm install` in the command line
 
