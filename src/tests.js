@@ -30,14 +30,3 @@ test("Check status code is 404 when unknown-uri is entered", (t) => {
       t.end();
     })
 })
-
-// test("Endpoint search", (t) => {
-//   supertest(router)
-//     .get('/search')
-//     .expect(200)
-//     .expect('Content-Type', /json/)
-//     .end((err, res) => {
-//       t.error(err);
-//       t.equal(, )
-//     })
-// })

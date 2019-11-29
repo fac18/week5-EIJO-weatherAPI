@@ -10,15 +10,14 @@ siteButton.addEventListener("click", event => {
     let searchUrl = `http://localhost:5000/search?q=${encodeURIComponent(
       searchTerm
     )}`;
-    // --change - line;
     xhr.onreadystatechange = () => {
       if (xhr.readyState == 4 && xhr.status == 200) {
         let originLocation = JSON.parse(xhr.responseText);
 
-        var paraWeatherCondition = document.createElement("p"); // Create a <li> node
+        var paraWeatherCondition = document.createElement("p");
         var textWeatherCondition = document.createTextNode(`The weather in ${searchTerm} is ${originLocation.weather}`); // Create a text node
-        paraWeatherCondition.appendChild(textWeatherCondition); // Append the text to <li>
-        weatherSection.appendChild(paraWeatherCondition); // Append <li> to <ul> with id="myList"
+        paraWeatherCondition.appendChild(textWeatherCondition);
+        weatherSection.appendChild(paraWeatherCondition);
       }
     };
     xhr.open("GET", searchUrl, true);
