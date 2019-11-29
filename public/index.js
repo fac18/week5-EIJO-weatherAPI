@@ -8,9 +8,7 @@ siteButton.addEventListener("click", event => {
   if (inputValue.value) {
     let searchTerm = inputValue.value;
     let xhr = new XMLHttpRequest();
-    let searchUrl = `http://localhost:5000/search?q=${encodeURIComponent(
-      searchTerm
-    )}`;
+    let searchUrl = `/search?q=${encodeURIComponent(searchTerm)}`;
   
     xhr.onreadystatechange = () => {
       if (xhr.readyState == 4 && xhr.status == 200) {

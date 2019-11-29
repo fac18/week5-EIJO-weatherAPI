@@ -7,9 +7,9 @@ const router = (request, response) => {
     handlers.handleHome(request, response);
 
     // maybe need to handleInput????????
-  } else if (endpoint.includes("public")) {
+  } else if (endpoint.startsWith("/public")) {
     handlers.handlePublic(request, response, endpoint); // PASS THE URL
-  } else if (endpoint.includes("q")) {
+  } else if (endpoint.includes("?q=")) {
     handlers.handleInput(request, response, endpoint);
     console.log("hello this is at the endpoint search");
   } else {
