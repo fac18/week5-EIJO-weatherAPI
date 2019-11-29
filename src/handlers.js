@@ -2,8 +2,6 @@ const fs = require("fs");
 const path = require("path");
 const apis = require("./api.js");
 const env = require("dotenv").config();
-const tflKey = process.env.TFL_KEY;
-const tflAppID = process.env.TFL_APP_ID;
 
 const handleHome = (request, response) => {
   const filePath = path.join(__dirname, "..", "public", "index.html"); 
@@ -24,6 +22,8 @@ const handleHome = (request, response) => {
 
 const handleInput = (request, response, endpoint) => {
   const city = endpoint.split("q=")[1];
+  const weatherKey = process.env.WEATHER_KEY; // fetch key from config file
+  // console.log("weatherKey:", weatherKey);
   const weatherUrl = `https://api.openweathermap.org/data/2.5/find?units=metric&appid=${weatherKey}&q=${city}`;
 
   apis.weatherRequest(weatherUrl, (err, data) => {
@@ -62,7 +62,6 @@ const handlePublic = (request, response, endpoint) => {
     }
   });
 };
-
 
 module.exports = {
   handleHome,

@@ -26,6 +26,4 @@ const weatherRequest = (url, cb) => {
     .on("error", err => cb(err));
 };
 
-module.exports = {
-  weatherRequest
-};
+module.exports = { weatherRequest };
