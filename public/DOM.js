@@ -1,7 +1,7 @@
 const inputValue = document.getElementsByClassName("input-city")[0];
 const siteButton = document.getElementById("site-button");
-const divTFL = document.querySelector(".tfl-output");
-console.log(siteButton);
+const weatherSection = document.querySelector(".weather-container");
+
 siteButton.addEventListener("click", event => {
   event.preventDefault();
   console.log("we made a request");
@@ -18,10 +18,10 @@ siteButton.addEventListener("click", event => {
         let originLocation = JSON.parse(xhr.responseText);
         console.log("originLocation:", originLocation);
 
-        var node = document.createElement("div"); // Create a <li> node
-        var textnode = document.createTextNode(originLocation.weather); // Create a text node
-        node.appendChild(textnode); // Append the text to <li>
-        divTFL.appendChild(node); // Append <li> to <ul> with id="myList"
+        var paraWeatherCondition = document.createElement("p"); // Create a <li> node
+        var textWeatherCondition = document.createTextNode(`The weather in ${searchTerm} is ${originLocation.weather}`); // Create a text node
+        paraWeatherCondition.appendChild(textWeatherCondition); // Append the text to <li>
+        weatherSection.appendChild(paraWeatherCondition); // Append <li> to <ul> with id="myList"
       }
     };
     xhr.open("GET", searchUrl, true);
