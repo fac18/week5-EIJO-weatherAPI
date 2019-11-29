@@ -17,7 +17,7 @@ siteButton.addEventListener("click", event => {
         console.log("weather:", weatherData);
         clearWeather();
         let paraWeatherCondition = document.createElement("p"); 
-        let textWeatherCondition = document.createTextNode(`The weather in ${searchTerm} is ${weatherData.weather}`); 
+        let textWeatherCondition = document.createTextNode(`The weather in ${searchTerm} is ${weatherData.weatherTemp}°C, ${weatherData.weather}`); 
         paraWeatherCondition.appendChild(textWeatherCondition);
         weatherSection.appendChild(paraWeatherCondition); 
 
@@ -26,6 +26,7 @@ siteButton.addEventListener("click", event => {
         weatherSection.appendChild(imgWeatherIcon);
         console.log(imgWeatherIcon);
         inputValue.value = "";
+
       }
     };
     xhr.open("GET", searchUrl, true);
