@@ -17,14 +17,21 @@ siteButton.addEventListener("click", event => {
         console.log("we made it back mother fuckersssss");
         let originLocation = JSON.parse(xhr.responseText);
         console.log("originLocation:", originLocation);
-
-        var paraWeatherCondition = document.createElement("p"); // Create a <li> node
-        var textWeatherCondition = document.createTextNode(`The weather in ${searchTerm} is ${originLocation.weather}`); // Create a text node
-        paraWeatherCondition.appendChild(textWeatherCondition); // Append the text to <li>
-        weatherSection.appendChild(paraWeatherCondition); // Append <li> to <ul> with id="myList"
+        clearWeather();
+        var paraWeatherCondition = document.createElement("p"); 
+        var textWeatherCondition = document.createTextNode(`The weather in ${searchTerm} is ${originLocation.weather}`); 
+        paraWeatherCondition.appendChild(textWeatherCondition);
+        weatherSection.appendChild(paraWeatherCondition); 
+        inputValue.value = "";
       }
     };
     xhr.open("GET", searchUrl, true);
     xhr.send();
   }
 });
+
+const clearWeather = () => {
+  while (weatherSection.firstChild) {
+    weatherSection.removeChild(weatherSection.firstChild);
+  }
+};
