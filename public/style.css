@@ -1,12 +1,11 @@
 :root {
     /* colour variables */ 
-    --glass: #0b8321;
-    --blueberry: #4d88cc;
+    --glass: #99D000;
+    --blueberry: #1c486d;
     --yelliced: #f2d655;
-    --mystic: #9088dd;
+    --mystic: #D0CDE1;
     --fey: #f5d4e3;
     --whiteout: white;
-
     /* spacing variables: golden ratio */
     --space-xs: 0.382rem;
     --space-s: 0.618rem;
@@ -18,48 +17,40 @@
     --strait: 'Strait', sans-serif;
     --wsans: 'Work Sans', sans-serif;
 }
-
 * {
     box-sizing: border-box;
 }
-
 html {
     scroll-behavior: smooth;
 }
-
 body {
     margin: var(--space-xl);
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
-    /* text-align: center; */
     background: var(--blueberry);
     line-height: var(--space-m);
     font-family: var(--strait)
 }
-
 section {
     display: flex;
     justify-content: center;
 }
-
 h1, p {
     text-align: center;
     padding: var(--space-m);
 }
-
 h1 {
     font-size: var(--space-xl);
     line-height: var(--space-xl);
+    color: var(--glass);
 }
-
 p {
     font-size: var(--space-l);
     font-family: var(--wsans);
     line-height: var(--space-l);
     padding-bottom: var(--space-l);
+    color: var(--mystic);
 }
-
 form {
     line-height: var(--space-l);
     font-family: var(--wsans);
@@ -67,43 +58,29 @@ form {
     display: flex;
     flex-flow: row nowrap;
 }
-
-.input-box {
+input::placeholder {
+    color: var(--glass);
+}
+.input-city {
     padding-left: var(--space-s);
     max-width: 80vw;
-    /* height: var(--space-l); */
+    height: var(--space-xl);
     border-radius: 16px;
-    padding-right: var(--space-l)
+    margin-right: var(--space-m);
+    background-color: var(--blueberry);
+    color: var(--mystic);
+    border: 2px solid var(--glass);
 }
-
 button {
     font-size: var(--space-l);
     border-radius: 16px;
-    border: white;
-    /* height: var(--space-xl); */
+    height: var(--space-xl);
+    color: var(--glass);
+    border: 2px solid var(--glass);
+    background-color: var(--blueberry);
+    cursor: pointer;
 }
-
-
-
-
-
-
-// Think about mobile first?
-
-// to show animation enable the correct animation class using the DOM to add the class.
-// Maybe use set-timer timeout to stop the animation? Or we can use a particular iteration count to ensure it doesn't continue on an infinite loop?
-
-// Alternatively, to hide the animation we can remove any class that includes 'weather', 
-//would we need to 'display: none' for the same DOM element?
-
-.weatherDrizzle {
-    display: block;
-    transform: translate();
+button:hover {
+    color: var(--mystic);
+    border: 2px solid var(--mystic);
 }
-
-//
-.svgClearout {
-    display: none;
-}
-
-
