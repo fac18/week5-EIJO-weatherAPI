@@ -1,4 +1,4 @@
-# Weather app - where are you going?
+# Weather API app - where are you going?
 
 ![building](https://api.travis-ci.com/fac18/week5-EIJO-weatherAPI.svg?branch=master)
 
@@ -105,7 +105,6 @@ notifications:
 - add your front end js to your html!!!! 💡
 - try to rewrite rather than take legacy code from other projects
 - console.log everything
-- walk it off
 
 ![](https://media.giphy.com/media/7Ie8S8jLLGCAM/giphy.gif)
 
